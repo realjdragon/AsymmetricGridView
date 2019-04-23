@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         adapter = new ListAdapter(this, listView, new ArrayList<DemoItem>());
         adapter.appendItems(getMoreItems(50));
 
-        listView.setRequestedColumnCount(3);
+        listView.setRequestedColumnCount(2);
         listView.setAdapter(adapter);
         listView.setDebugging(true);
 
@@ -49,10 +49,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         final List<DemoItem> items = new ArrayList<>();
 
         for (int i = 0; i < qty; i++) {
-            int colSpan = Math.random() < 0.2f ? 2 : 1;
-            // Swap the next 2 lines to have items with variable
-            // column/row span.
-            // int rowSpan = Math.random() < 0.2f ? 2 : 1;
+            int colSpan = 1;
+            if (i % 3 == 0) {
+                colSpan = 2;
+            }
             int rowSpan = colSpan;
             final DemoItem item = new DemoItem(colSpan, rowSpan, currentOffset + i);
             items.add(item);

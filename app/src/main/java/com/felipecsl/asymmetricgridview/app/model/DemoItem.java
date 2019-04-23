@@ -24,6 +24,7 @@ public class DemoItem implements AsymmetricItem {
         readFromParcel(in);
     }
 
+    // 비대칭 아이템이라 아래 두 개의 메서드를 구현한거임.
     @Override
     public int getColumnSpan() {
         return columnSpan;

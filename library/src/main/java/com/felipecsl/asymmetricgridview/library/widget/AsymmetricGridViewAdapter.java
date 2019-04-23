@@ -44,12 +44,17 @@ public abstract class AsymmetricGridViewAdapter<T extends AsymmetricItem>
 
         super(context, 0, items);
 
+        // 뭐니 이게
         this.linearLayoutPool = new ViewPool<>(new LinearLayoutPoolObjectFactory(context));
+        // 이게 진짜 리스트
         this.items = items;
         this.context = context;
+        // 아시메트릭 그리드뷰
         this.listView = listView;
     }
 
+    // 상속받아서 이거만 구현해서 사용하나본데
+    // 이 메서드가 호출될때는 이미 랜덤으로 그리드가 정해진 상태임...
     public abstract View getActualView(final int position, final View convertView, final ViewGroup parent);
 
     protected int getRowHeight(final AsymmetricItem item) {
@@ -239,6 +244,7 @@ public abstract class AsymmetricGridViewAdapter<T extends AsymmetricItem>
         if (lastRow >= 0)
             rowInfo = itemsPerRow.get(lastRow);
 
+        // 추가로 더 붙일 때 마지막 row를 구한 다음 남은 공간이 있는지 본다..
         if (rowInfo != null) {
             final float spaceLeftInLastRow = rowInfo.getSpaceLeft();
 
